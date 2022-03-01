@@ -22,7 +22,7 @@ const GLOBAL_STYLES = StyleSheet.create({
     },
     dashboardItemText: {
         fontSize: 20,
-        fontFamily:FONTS.HEADING,
+        fontFamily: FONTS.HEADING,
     },
     dashboardItemPurple: {
         backgroundColor: COLORS.PURPLE
@@ -60,7 +60,7 @@ const GLOBAL_STYLES = StyleSheet.create({
         textAlign: 'center'
     },
     requestPrayerButton: {
-        paddingTop:10,
+        paddingTop: 10,
     },
     successTextonDark: {
         color: COLORS.WHITE,
@@ -68,6 +68,41 @@ const GLOBAL_STYLES = StyleSheet.create({
     },
     errorText: {
         color: COLORS.RED,
+    },
+    successText: {
+        color: COLORS.GREEN,
+    },
+    flatListItem: {
+        'flex':1,
+        'flexDirection': 'row',
+        'padding': 10,
+    },
+    flatListItemSeperator: {
+        borderTopWidth: 1,
+        marginLeft: 10,
+        borderTopColor: COLORS.PURPLE,
+    },
+    flatListItemTitle: {
+        'fontWeight': 'bold',
+    },
+    flatListItemText: {
+        'paddingHorizontal': 10,
+        'flex': 2,
+        'justifyContent': 'center',
+    },
+    flatListItemIcons: {
+        'flexDirection': 'row',
+        'alignItems': 'center',
+        'justifyContent': 'space-between',
+    },
+    flatListFooter: {
+        'flexDirection': 'row',
+        'justifyContent': 'space-around',
+        'padding': 10,
+        'backgroundColor': COLORS.PURPLE,
+        'position': 'absolute',
+        'bottom': 0,
+        'width': '100%'
     }
 });
 
