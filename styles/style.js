@@ -72,6 +72,9 @@ const GLOBAL_STYLES = StyleSheet.create({
     successText: {
         color: COLORS.GREEN,
     },
+    flatListContainer: {
+        paddingBottom: 40
+    },
     flatListItem: {
         'flex':1,
         'flexDirection': 'row',

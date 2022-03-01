@@ -14,7 +14,7 @@ import { GLOBAL_STYLES } from '../styles/style'
 import { COLORS } from '../helpers/constants.js';
 
 const Item = ({ item, playing, setPlaying }) => {
-  const { title, date, time, preacher, photo } = item
+  const { id, title, date, time, preacher, photo } = item
   return (
     <View style={GLOBAL_STYLES.flatListItem}>
       <Image
@@ -26,12 +26,23 @@ const Item = ({ item, playing, setPlaying }) => {
         <Text>{date} | {time} | {preacher}</Text>
       </View>
       <View style={GLOBAL_STYLES.flatListItemIcons}>
-        <TouchableOpacity>
-          <Icon name="stop-circle" size={20} color="red" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=> setPlaying(!playing)}>
-          <Icon name={playing ? 'pause-circle' : 'play-circle'} size={20} color="red" />
-        </TouchableOpacity>
+        {
+          playing === id ? (
+            <>
+              <TouchableOpacity onPress={() => setPlaying(null)}>
+                <Icon name="stop-circle" size={25} color="red" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setPlaying(null)}>
+                <Icon name="pause-circle" size={25} color="red" />
+              </TouchableOpacity>
+            </>
+          ) :
+            (
+              <TouchableOpacity onPress={() => setPlaying(id)}>
+                <Icon name={playing === id ? 'pause-circle' : 'play-circle'} size={25} color="red" />
+              </TouchableOpacity>
+            )
+        }
       </View>
     </View>
   )
@@ -39,8 +50,19 @@ const Item = ({ item, playing, setPlaying }) => {
 
 const Header = () => {
   return (
-    <View>
+    <View style={{
+      'flex': 1,
+      'flexDirection': 'row',
+      'justifyContent': 'space-between',
+      'alignItems': 'center'
+    }}>
       <TextInput placeholder="Search" style={GLOBAL_STYLES.field} />
+{/*       <TouchableOpacity>
+        <FAIcon name="calendar" size={20} color="red" />
+      </TouchableOpacity> */}
+      <TouchableOpacity>
+        <FAIcon name="search" size={20} color="red" />
+      </TouchableOpacity>
     </View>
   )
 }
@@ -63,22 +85,25 @@ const Footer = () => {
   )
 }
 
-const BibleScreen = () => {
-  const [isPlaying, setPlaying] = React.useState(false)
+const BibleScreen = ({ navigation }) => {
+  navigation.setOptions({
+    headerTitle: ()=> <Header />,
+  })
 
-  const renderItem = (item) => <Item {...item} playing={isPlaying} setPlaying={setPlaying}/>
+  const [playing, setPlaying] = React.useState(null)
+
+  const renderItem = (item) => <Item {...item} playing={playing} setPlaying={setPlaying}/>
 
   return (
     <>
-      <View style={{'paddingBottom': 40}}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        ItemSeparatorComponent={() => <View style={GLOBAL_STYLES.flatListItemSeperator} />}
-        ListHeaderComponent={() => <Header />}
-      />
-    </View>
+      <View style={GLOBAL_STYLES.flatListContainer}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          ItemSeparatorComponent={() => <View style={GLOBAL_STYLES.flatListItemSeperator} />}
+        />
+      </View>
       <Footer />
     </>
   )
