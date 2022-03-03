@@ -6,6 +6,8 @@ const COLORS = {
     PURPLE: 'purple',
     ORANGE: 'orange',
     GREEN: 'green',
+    GREY: 'grey',
+    LIGHT_GREY: 'lightgrey',
     PINK: 'pink',
     RED: 'red',
 }

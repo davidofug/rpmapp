@@ -39,7 +39,13 @@ const App = () => {
           options={{
             'title': 'Make a Prayer Request',
           }} />
-        <Stack.Screen name="Bible" component={BibleScreen} />
+        <Stack.Screen
+          name="Bible"
+          options={{
+            'title': 'Bible lessons',
+          }}
+          component={BibleScreen}
+        />
         <Stack.Screen name="Testimonies" component={TestimoniesScreen} />
         <Stack.Screen name="Service" component={ServiceScreen} />
         <Stack.Screen name="Cell" component={CellScreen} />
