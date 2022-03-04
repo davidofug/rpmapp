@@ -155,4 +155,42 @@ const GLOBAL_STYLES = StyleSheet.create({
     }
 });
 
-export { GLOBAL_STYLES };
+const OVERLAY_STYLES = StyleSheet.create({
+    container: {
+        backgroundColor: COLORS.LIGHT_BLACK,
+        justifyContent: 'flex-end',
+        flex:1,
+        position: 'absolute',
+        'height': '100%',
+        width: '100%',
+        'zIndex': 9999,
+        borderWidth: 1,
+    },
+    upperSpace: {
+        height:'30%',
+    },
+    contentWrapper: {
+        // height: '70%',
+        backgroundColor: COLORS.WHITE,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        padding: 10,
+        paddingTop: 0,
+    },
+    title: {
+        flexDirection: 'row',
+        borderBottomColor: COLORS.LIGHT_GREY,
+        borderBottomWidth: 1,
+        alignItems: 'center',
+        height: 30
+    },
+    titleText: {
+        color: COLORS.GREY,
+        paddingLeft: 10,
+        fontSize: 14,
+    },
+    body: {
+        padding: 10,
+    },
+});
+export { GLOBAL_STYLES, OVERLAY_STYLES };

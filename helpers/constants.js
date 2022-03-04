@@ -3,6 +3,7 @@ const COLORS = {
     SECONDARY: '#FF0',
     WHITE: '#FFF',
     BLACK: '#000',
+    LIGHT_BLACK: 'rgba(0, 0, 0, 0.7)',
     PURPLE: 'purple',
     ORANGE: 'orange',
     GREEN: 'green',
