@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import { COLORS, FONTS } from '../helpers/constants'
-
 const GLOBAL_STYLES = StyleSheet.create({
     container: {
         'flex': 1,
@@ -36,9 +35,14 @@ const GLOBAL_STYLES = StyleSheet.create({
     },
     dashboardItem: {
         'flex': 1,
+        'flexDirection': 'column',
         'justifyContent': 'center',
         'alignItems': 'center',
-        'marginBottom': 2,
+        'borderLeftWidth': 1,
+        'borderBottomWidth': 1,
+        'borderColor': COLORS.GREY,
+        'padding': 10,
+        'height': '100%',
     },
     dashboardItemText: {
         'fontSize': 20,
