@@ -10,18 +10,16 @@ import { COLORS } from '../helpers/constants'
 import { GLOBAL_STYLES } from '../styles/style'
 const TitheScreen = ({navigation}) => {
   const[form, setForm] = React.useState(false)
-  // const [header, setHeader] = React.useState(true)
   React.useEffect(() => {
     navigation.setOptions({
       headerRight: () => <Button title="Deposit"
         onPress={() => {
           setForm(true)
-          setHeader(false)
         }}
       />,
-      // headerShown: header,
+      headerShown: form ? false : true,
     })
-  },[])
+  },[form])
   return (
     <View style={{ flex: 1 }}>
       <Text>Tithe Lessons</Text>
